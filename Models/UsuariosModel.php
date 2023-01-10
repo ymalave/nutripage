@@ -11,7 +11,7 @@ class UsuariosModel extends Query
         $sql = "SELECT id, nombres, apellidos, correo, perfil FROM usuarios WHERE estado = $estado";
         return $this->selectAll($sql);
     }
-    /*Funcion para registrar los datos de los nuevos usuarios*/
+    /*Funcion para registrar los datos de los usuarios*/
     public function registrar($nombre, $apellido, $correo, $clave)
     {
         $sql = "INSERT INTO usuarios (nombres, apellidos, correo, clave) VALUES (?,?,?,?)";

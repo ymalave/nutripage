@@ -27,7 +27,7 @@ class Usuarios extends Controller
         echo json_encode($data);
         die();
     }
-    //Permite registrar los datos de los nuevos usuarios
+    //Permite registrar o modificar los datos de los usuarios
     public function registrar()
     {
         if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['correo']) && isset($_POST['clave'])) {
@@ -59,6 +59,7 @@ class Usuarios extends Controller
                         $respuesta = array('msg' => '¡El correo electrónico ya se encuentra registrado!', 'icono' => 'warning');
                     }
                 } else {
+                    //Permite modificar los usuarios registrados
                     $data = $this->model->modificar($nombre, $apellido, $correo, $id);
                     if ($data == 1) {
                         // Si se completado la modificación, mostrar alerta

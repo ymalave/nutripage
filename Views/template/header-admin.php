@@ -44,16 +44,23 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
+
                 <li>
                     <a href="<?php echo BASE_URL . 'admin/home'; ?>">
                         <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
                         <div class="menu-title">Dashboard</div>
                     </a>
                 </li>
-
+                <!-- Opción para manejar a los usuarios -->
                 <li>
                     <a href="<?php echo BASE_URL . 'usuarios'; ?>">
                         <div class="menu-title"><i class="fas fa-users"></i> Usuarios</div>
+                    </a>
+                </li>
+                <!-- Opción para manejar las categorias -->
+                <li>
+                    <a href="<?php echo BASE_URL . 'categorias'; ?>">
+                        <div class="menu-title"><i class="fas fa-tags"></i> Categorías</div>
                     </a>
                 </li>
             </ul>
