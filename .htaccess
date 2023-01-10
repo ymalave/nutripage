@@ -1,0 +1,7 @@
+#Archivo de configuración del software de servidor Apache
+#Codigo para crear url's amigables
+
+RewriteEngine on                                
+RewriteCond %{REQUEST_FILENAME} !-d             
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
