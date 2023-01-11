@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { data: "accion" },
     ],
     //Variables que tienen almacenadas codigo js para la
-    //traducción y los votones personalizados del datatable
+    //traducción y los botones personalizados del datatable
     language,
     dom,
     buttons,

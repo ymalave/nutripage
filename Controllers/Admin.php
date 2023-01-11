@@ -18,21 +18,22 @@ class Admin extends Controller
         if (isset($_POST['email']) && isset($_POST['clave'])) {
             //Si los campos email y clave estan vacios, mostrar alerta
             if (empty($_POST['email']) || empty($_POST['clave'])) {
-                $respuesta = array('msg' => 'Todos los campos son requeridos', 'icono' => 'warning');
+                $respuesta = array('msg' => '¡Todos los campos son requeridos!', 'icono' => 'warning');
             } else {
                 // Si el correo ingresado no existe, mostrar alerta
                 $data = $this->model->getUsuario($_POST['email']);
                 if (empty($data)) {
-                    $respuesta = array('msg' => 'Correo no registrado', 'icono' => 'warning');
+                    $respuesta = array('msg' => '¡Correo no registrado!', 'icono' => 'warning');
                 } else {
                     // Si el correo existe, verificar que la contraseña sea correcta
                     if (password_verify($_POST['clave'], $data['clave'])) {
                         // Si la contraseña es correcta, se muestra una alerta y se crea la sesión
                         $_SESSION['email'] = $data['correo'];
-                        $respuesta = array('msg' => 'Inicio de sesión exitoso', 'icono' => 'success');
+                        $_SESSION['nombre_usuario'] = $data['nombres'];
+                        $respuesta = array('msg' => '¡Inicio de sesión exitoso!', 'icono' => 'success');
                     } else {
                         // Si la clave ingresada es incorrecta, mostrar alerta
-                        $respuesta = array('msg' => 'Contraseña incorrecta', 'icono' => 'warning');
+                        $respuesta = array('msg' => '¡Contraseña incorrecta!', 'icono' => 'warning');
                     }
                 }
             }
@@ -47,5 +48,11 @@ class Admin extends Controller
     {
         $data['title'] = 'Panel administrativo';
         $this->views->getView('admin/administracion', "index", $data);
+    }
+    /* Función para cerrar sesión */
+    public function salir()
+    {
+        session_destroy();
+        header('Location: ' . BASE_URL);
     }
 }

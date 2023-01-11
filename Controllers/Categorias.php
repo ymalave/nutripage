@@ -117,7 +117,7 @@ class Categorias extends Controller
     //Permite editar las categorias registradas desde la tabla
     public function edit($idCat)
     {
-        // Permite borrar la categoria de la bd a traves del id
+        // Permite editar la categoria de la bd a traves del id
         if (is_numeric($idCat)) {
             $data = $this->model->getCategoria($idCat);
             echo json_encode($data, JSON_UNESCAPED_UNICODE);

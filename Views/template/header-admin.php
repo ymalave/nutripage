@@ -29,9 +29,8 @@
 </head>
 
 <body>
-    <!--wrapper-->
+    <!-- Diseño de la barra de menu lateral -->
     <div class="wrapper">
-        <!--sidebar wrapper -->
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
@@ -42,13 +41,11 @@
                 </div>
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i></div>
             </div>
-            <!--navigation-->
+            <!-- Navegación de la barra de menu lateral -->
             <ul class="metismenu" id="menu">
-
                 <li>
                     <a href="<?php echo BASE_URL . 'admin/home'; ?>">
-                        <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-                        <div class="menu-title">Dashboard</div>
+                        <div class="menu-title"><i class="fas fa-home"></i> Resumen</div>
                     </a>
                 </li>
                 <!-- Opción para manejar a los usuarios -->
@@ -63,11 +60,22 @@
                         <div class="menu-title"><i class="fas fa-tags"></i> Categorías</div>
                     </a>
                 </li>
+                <!-- Opción para manejar los productos -->
+                <li>
+                    <a href="<?php echo BASE_URL . 'productos'; ?>">
+                        <div class="menu-title"><i class="fas fa-list"></i> Productos</div>
+                    </a>
+                </li>
+                <!-- Opción para manejar los pedidos -->
+                <li>
+                    <a href="<?php echo BASE_URL . 'pedidos'; ?>">
+                        <div class="menu-title"><i class="fas fa-bell"></i> Pedidos</div>
+                    </a>
+                </li>
             </ul>
-            <!--end navigation-->
         </div>
-        <!--end sidebar wrapper -->
-        <!--start header -->
+        <!-- Fin del diseño de la barra de menu lateral -->
+        <!-- Diseño de la barra de menu superior -->
         <header>
             <div class="topbar d-flex align-items-center">
                 <nav class="navbar navbar-expand">
@@ -77,28 +85,25 @@
 
                     </div>
                     <div class="user-box dropdown">
+                        <!-- Muestra los datos de la sesión -->
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="<?php echo BASE_URL; ?>assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                            <img src="<?php echo BASE_URL; ?>assets/images/logo.png" class="user-img" alt="user avatar">
                             <div class="user-info ps-3">
-                                <p class="user-name mb-0">Pauline Seitz</p>
-                                <p class="designattion mb-0">Web Designer</p>
+                                <p class="user-name mb-0"><?php echo $_SESSION['nombre_usuario']; ?></p>
+                                <p class="designattion mb-0"><?php echo $_SESSION['email']; ?></p>
                             </div>
                         </a>
+                        <!-- lista desplegable con opciones sobre la sesion -->
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:;"><i class="bx bx-cog"></i><span>Settings</span></a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-home-circle'></i><span>Dashboard</span></a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-dollar-circle'></i><span>Earnings</span></a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-download'></i><span>Downloads</span></a>
+                            <li>
+                                <a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
                             </li>
                             <li>
                                 <div class="dropdown-divider mb-0"></div>
                             </li>
-                            <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+                            <!-- Para cerrar sesion -->
+                            <li>
+                                <a class="dropdown-item" href="<?php echo BASE_URL . 'admin/salir'; ?>"><i class='bx bx-log-out-circle'></i><span>Cerrar sesión</span></a>
                             </li>
                         </ul>
                     </div>

@@ -1,4 +1,4 @@
-<?php include_once 'Views/template-principal/header.php'; ?>
+<?php include_once 'Views/template/header-principal.php'; ?>
 
 <!-- Inicio del diseño del detalle de los productos -->
 <section class="bg-light">
@@ -133,7 +133,7 @@
 </section>
 <!-- Fin del diseño de los productos relacionados -->
 
-<?php include_once 'Views/template-principal/footer.php'; ?>
+<?php include_once 'Views/template/footer-principal.php'; ?>
 
 <script src="<?php echo BASE_URL; ?>assets/js/modulos/detail.js"></script>
 <!-- Start Slider Script -->
