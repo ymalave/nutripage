@@ -162,7 +162,7 @@ class Clientes extends Controller
             if ($data > 0) {
                 foreach ($productos as $producto) {
                     $temp = $this->model->getProducto($producto['idProducto']);
-                    $this->model->registrarDetalle($temp['nombre'], $temp['precio'], $producto['cantidad'], $data);
+                    $this->model->registrarDetalle($temp['nombre'], $temp['precio'], $producto['cantidad'], $data, $producto['idProducto']);
                 }
                 $mensaje = array('msg' => '¡El pedido ha sido registrado existosamente!', 'icono' => 'success');
             } else {
@@ -177,9 +177,9 @@ class Clientes extends Controller
     //Listar prooductos pendientes
     public function listarPendientes()
     {
-        //Para buscar los pedidos pendientes
-        $data = $this->model->getPedidos(1);
-        //Muestra un boton al lado de cada pedido pendiente para ver el detalle
+        //Para buscar los pedidos
+        $data = $this->model->getPedidos();
+        //Muestra un boton al lado de cada pedido para ver el detalle
         for ($i=0; $i < count($data); $i++) { 
             $data[$i]['accion'] = 
             '<div class="text-center">
@@ -192,7 +192,8 @@ class Clientes extends Controller
     //Obtiene los detalles de los pedidos pendientes
     public function verPedido($idPedido)
     {
-        $data['productos'] = $this->model->verPedido($idPedido);
+        $data['pedido'] = $this->model->getPedido($idPedido);
+        $data['productos'] = $this->model->verPedidos($idPedido);
         $data['moneda'] = MONEDA;
         echo json_encode($data);
         die();

@@ -1,5 +1,8 @@
 const tableLista = document.querySelector('#tableListaProductos tbody');
 const tblPendientes = document.querySelector('#tblPendientes');
+const estadoEnviado = document.querySelector('#estadoEnviado');
+const estadoProceso = document.querySelector('#estadoProceso');
+const estadoCompletado = document.querySelector('#estadoCompletado');
 
 document.addEventListener("DOMContentLoaded", function() {
   if (tableLista) {
@@ -104,11 +107,14 @@ function registrarPedido(datos) {
         }
     }
 }
-//Permite ver el estado del pedido pendiente seleccionado
+//Permite ver el estado del pedido seleccionado
 function verPedido(idPedido) {
-  //Muestra el modal del pedido pendiente
+  //Muestra el modal del pedido
+  estadoEnviado.classList.remove('services-icon-wap');
+  estadoProceso.classList.remove('services-icon-wap');
+  estadoCompletado.classList.remove('services-icon-wap');
   const mPedido = new bootstrap.Modal(document.getElementById('modalPedido'));
-  //Muestra el detalle del pedido pendiente
+  //Muestra el detalle del pedido
   const url = base_url + 'clientes/verPedido/' + idPedido;
   const http = new XMLHttpRequest();
   http.open('GET', url, true);
@@ -117,6 +123,13 @@ function verPedido(idPedido) {
     if (this.readyState == 4 && this.status == 200) {
       const res = JSON.parse(this.responseText);
       let html = '';
+      if (res.pedido.proceso == 1) {
+        estadoEnviado.classList.add('services-icon-wap');
+      } else if (res.pedido.proceso == 2) {
+        estadoProceso.classList.add('services-icon-wap');
+      } else {
+        estadoCompletado.classList.add('services-icon-wap');
+      }
       res.productos.forEach(row => {
         let subTotal = parseFloat(row.precio) * parseInt(row.cantidad);
         html += `<tr>

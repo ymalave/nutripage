@@ -9,10 +9,7 @@
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Por pagar</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pendientes-tab" data-bs-toggle="tab" data-bs-target="#pendientes-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pendientes</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="completados-tab" data-bs-toggle="tab" data-bs-target="#completados-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Completados</button>
+                <button class="nav-link" id="pendientes-tab" data-bs-toggle="tab" data-bs-target="#pendientes-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pedidos</button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -85,7 +82,7 @@
                                         </h2>
                                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                <p>No hay :c</p>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Muestra las compras pendientes por confirmar -->
+            <!-- Muestra los pedidos -->
             <div class="tab-pane fade" id="pendientes-tab-pane" role="tabpanel" aria-labelledby="pendientes-tab" tabindex="0">
                 <div class="col-12">
                     <div class="card shadow-lg">
@@ -118,9 +115,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="completados-tab-pane" role="tabpanel" aria-labelledby="completados-tab" tabindex="0">...</div>
         </div>
-
     <?php } else { ?>
         <!-- Mensaje que señala que el cliente debe verificar el correo-->
         <div class="alert alert-danger text-center" role="alert">
@@ -149,21 +144,21 @@
                 <div class="row">
                     <!-- Para mostrar que el pedido ha sido pagado -->
                     <div class="col-md-6 col-lg-4 pb-5">
-                        <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h-100 py-5 shadow" id="estadoEnviado">
                             <div class="h1 text-util text-center"><i class="fa fa-truck fa-lg"></i></div>
                             <h2 class="h5 mt-4 text-center">Pagado</h2>
                         </div>
                     </div>
                     <!-- Para mostrar que el pedido esta en proceso -->
                     <div class="col-md-6 col-lg-4 pb-5">
-                        <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h-100 py-5 shadow" id="estadoProceso">
                             <div class="h1 text-util text-center"><i class="fa fa-exchange-alt"></i></div>
                             <h2 class="h5 mt-4 text-center">En proceso</h2>
                         </div>
                     </div>
                     <!-- Para mostrar que el pedido ha sido completado -->
                     <div class="col-md-6 col-lg-4 pb-5">
-                        <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h-100 py-5 shadow" id="estadoCompletado">
                             <div class="h1 text-util text-center"><i class="fa fa-percent"></i></div>
                             <h2 class="h5 mt-4 text-center">Completado</h2>
                         </div>
@@ -171,7 +166,7 @@
                     <!-- tabla que muestra el detalle del pedido seleccionado -->
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table table-borderer table-striped table-hover align-middle" id="tablePedidos" style="width: 100%">
+                            <table class="table table-bordered table-striped table-hover align-middle" id="tablePedidos" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th>Producto</th>

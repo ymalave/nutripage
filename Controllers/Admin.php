@@ -43,10 +43,15 @@ class Admin extends Controller
         echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
         die();
     }
-    /* Función para mostrar la la vista de administracion al iniciar sesión */
+    /* Función para mostrar la vista de administracion al iniciar sesión */
     public function home()
     {
         $data['title'] = 'Panel administrativo';
+        //Permiten obtener los totales para las estadisticas
+        $data['pendientes'] = $this->model->getTotales(1);
+        $data['proceso'] = $this->model->getTotales(2);
+        $data['completados'] = $this->model->getTotales(3);
+        $data['productos'] = $this->model->getProductos();
         $this->views->getView('admin/administracion', "index", $data);
     }
     /* Función para cerrar sesión */
@@ -54,5 +59,19 @@ class Admin extends Controller
     {
         session_destroy();
         header('Location: ' . BASE_URL);
+    }
+    /* Funcion para mostrar los productos minimos en stock */
+    public function productosMinimos()
+    {
+        $data = $this->model->productosMinimos();
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    /* Funcion para mostrar los productos mas vendidos */
+    public function topProductos()
+    {
+        $data = $this->model->topProductos();
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
     }
 }

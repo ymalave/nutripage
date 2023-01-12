@@ -5,28 +5,13 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-md-12">
-                    <ul class="list-inline shop-top-menu pb-3 pt-1">
-                        <li class="list-inline-item">
-                            <a class="h3 text-dark text-decoration-none mr-3" href="#">Todos</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="h3 text-dark text-decoration-none mr-3" href="#">Men's</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
                 <!-- Muestra todos los productos en el catalogo -->
                 <?php foreach ($data['productos'] as $producto) { ?>
                     <div class="col-md-3">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <!-- Muestra las imagenes de los productos en el catalogo -->
-                                <img class="card-img rounded-0 img-fluid" src="<?php echo $producto['imagen']; ?>">
+                                <img class="card-img rounded-0 img-fluid" src="<?php echo BASE_URL . $producto['imagen']; ?>">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <!-- Agregar producto a lista de deseos al tocar el icono de corazon -->

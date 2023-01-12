@@ -17,10 +17,26 @@ class Pedidos extends Controller
     {
         $data = $this->model->getPedidos(1);
         for ($i = 0; $i < count($data); $i++) {
-            // Mostrar botones para eliminar los datos de los productos de la fila
+            // Mostrar botones para ver el detalle y cambiar el estado a 'por procesar' del pedido de la fila
             $data[$i]['accion'] =
                 '<div class="d-flex">
-                    <button class="btn btn-info" type="button" onclick="cambiarProceso(' . $data[$i]['id'] . ')"><i class="fas fa-check-circle"></i></button>
+                <button class="btn btn-success" type="button" onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-info" type="button" onclick="cambiarProceso(' . $data[$i]['id'] . ', 2)"><i class="fas fa-check-circle"></i></button>
+                </div>';
+        }
+        echo json_encode($data);
+        die();
+    }
+    // Permite obtener los datos de los pedidos por procesar
+    public function listarProceso()
+    {
+        $data = $this->model->getPedidos(2);
+        for ($i = 0; $i < count($data); $i++) {
+            // Mostrar botones para ver detalle y cambiar el estado a 'completado' del pedido de la fila
+            $data[$i]['accion'] =
+                '<div class="d-flex">
+                <button class="btn btn-success" type="button" onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-info" type="button" onclick="cambiarProceso(' . $data[$i]['id'] . ', 3)"><i class="fas fa-check-circle"></i></button>
                 </div>';
         }
         echo json_encode($data);
@@ -31,27 +47,30 @@ class Pedidos extends Controller
     {
         $data = $this->model->getPedidos(3);
         for ($i = 0; $i < count($data); $i++) {
-            // Mostrar botones para eliminar los datos de los productos de la fila
+            // Mostrar boton para ver el detalle del pedido de la fila
             $data[$i]['accion'] =
                 '<div class="d-flex">
-                    <button class="btn btn-danger" type="button" onclick="eliminarPro(' . $data[$i]['id'] . ')"><i class="fas fa-trash"></i></button>
+                    <button class="btn btn-success" type="button" onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button>
                 </div>';
         }
         echo json_encode($data);
         die();
     }
     // Permite cambiar el estado de los pedidos
-    public function update($idPedido)
+    public function update($datos)
     {
+        $array = explode(',', $datos);
+        $idPedido = $array[0];
+        $proceso = $array[1];
         // Permite cambiar el estado de un pedido especifico a traves de su id
         if (is_numeric($idPedido)) {
-            $data = $this->model->actualizarEstado(2, $idPedido);
+            $data = $this->model->actualizarEstado($proceso, $idPedido);
             if ($data == 1) {
                 // Si se ha cambiado el estado, mostrar alerta
-                $respuesta = array('msg' => '¡Pedido marcado como procesado!', 'icono' => 'success');
+                $respuesta = array('msg' => '¡Estado del pedido actualizado!', 'icono' => 'success');
             } else {
                 // Si no se ha podido cambiar el estado, mostrar alerta
-                $respuesta = array('msg' => '¡Error al marcar pedido como procesado!', 'icono' => 'error');
+                $respuesta = array('msg' => '¡Error al cambiar el estado del pedido!', 'icono' => 'error');
             }
             echo json_encode($respuesta);
         }

@@ -31,7 +31,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="titleModal"></h5>
+                <h5 class="modal-title text-white" id="titleModal"></h5>
                 <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>

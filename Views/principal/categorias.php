@@ -20,7 +20,7 @@
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <!-- Muestra las imagenes de los productos en el catalogo -->
-                                <img class="card-img rounded-0 img-fluid" src="<?php echo $producto['imagen']; ?>">
+                                <img class="card-img rounded-0 img-fluid" src="<?php echo BASE_URL . $producto['imagen']; ?>">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <!-- Agregar producto a lista de deseos al tocar el icono de corazon -->

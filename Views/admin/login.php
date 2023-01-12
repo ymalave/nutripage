@@ -46,12 +46,12 @@
                                         <form class="row g-3" id="formulario">
                                             <div class="col-12">
                                                 <label for="email" class="form-label">Correo electrónico</label>
-                                                <input type="email" class="form-control" id="email" name="email" value="marielakmpbell@gmail.com" placeholder="Correo electrónico">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico">
                                             </div>
                                             <div class="col-12">
                                                 <label for="clave" class="form-label">Contraseña</label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0" id="clave" name="clave" value="admin" placeholder="Contraseña"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                    <input type="password" class="form-control border-end-0" id="clave" name="clave" placeholder="Contraseña"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 text-end"> <a href="authentication-forgot-password.html">¿Olvidaste tu contraseña?</a>

@@ -7,7 +7,7 @@
             <div class="col-lg-5 mt-5">
                 <!-- Imagen del producto -->
                 <div class="card mb-3">
-                    <img class="card-img img-fluid" src="<?php echo $data['producto']['imagen']; ?>" alt="Card image cap" id="product-detail">
+                    <img class="card-img img-fluid" src="<?php echo BASE_URL . $data['producto']['imagen']; ?>" alt="Card image cap" id="product-detail">
                 </div>
             </div>
             <!-- col end -->
@@ -79,7 +79,7 @@
                     <div class="product-wap card rounded-0">
                         <div class="card rounded-0">
                             <!-- Muestra las imagenes de los productos relacionados-->
-                            <img class="card-img rounded-0 img-fluid" src="<?php echo $producto['imagen']; ?>">
+                            <img class="card-img rounded-0 img-fluid" src="<?php echo BASE_URL . $producto['imagen']; ?>">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                     <!-- Agregar producto a lista de deseos al tocar el icono de corazon -->

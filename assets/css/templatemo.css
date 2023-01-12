@@ -141,9 +141,8 @@ body, ul, li, p, a, label, input, div {
   color: #000 !important;
 }
 /* Services */
-.services-icon-wap {transition: .3s;}
+.services-icon-wap {transition: .3s; background: #87e3d5;}
 .services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
-.services-icon-wap:hover {background: #5da6e2;}
 /* Contact map */
 .leaflet-control a, .leaflet-control { font-size: 10px !important;}
 .form-control { border: 1px solid #e8e8e8;}

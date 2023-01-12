@@ -29,7 +29,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="titleModal"></h5>
+                <h5 class="modal-title text-white" id="titleModal"></h5>
                 <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="imagen">Imagen (opcional)</label>
-                        <input id="imagen" class="form-control-file" type="file" name="imagen">
+                        <input id="imagen" class="form-control" type="file" name="imagen">
                     </div>
                 </div>
                 <!-- Boton para registrar la categoria nueva -->
