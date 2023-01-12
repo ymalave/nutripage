@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <div class="card h-100">
                 <a href="${ base_url + 'principal/detail/' + producto.id }">
                 <!-- Muestra la imagen del producto y su nombre -->
-                  <img src="${ producto.imagen }" class="card-img-top" alt="${ producto.nombre }">
+                  <img src="${ base_url + producto.imagen }" class="card-img-top" alt="${ producto.nombre }">
                 </a>
                 <div class="card-body">
                   <ul class="list-unstyled d-flex justify-content-between">
