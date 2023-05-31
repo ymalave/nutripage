@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(res)
           Swal.fire("Aviso", res.msg, res.icono);
           if (res.icono == "success") {
+            localStorage.removeItem('listaCarrito');
             setTimeout(() => {
               window.location.reload();
             }, 2000);
@@ -78,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
-
 
   registroTrans.addEventListener("click", function (datos) {
     //Verifica que no se deje un campo sin rellenar en el registro
@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(res)
           Swal.fire("Aviso", res.msg, res.icono);
           if (res.icono == "success") {
+            localStorage.removeItem('listaCarrito');
             setTimeout(() => {
               window.location.reload();
             }, 2000);
