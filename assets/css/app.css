@@ -62,13 +62,13 @@ a {
 	margin-left: 10px;
 	margin-bottom: 0;
 	letter-spacing: 1px;
-	color: #0ac5a8
+	color: #C0B8DA
 }
 
 .toggle-icon {
 	font-size: 22px;
 	cursor: pointer;
-	color: #0ac5a8
+	color: #C0B8DA
 }
 
 .topbar {
@@ -222,9 +222,9 @@ a {
 .sidebar-wrapper .metismenu a:active,
 .sidebar-wrapper .metismenu a:focus,
 .sidebar-wrapper .metismenu a:hover {
-	color: #008cff;
+	color: #ffffff;
 	text-decoration: none;
-	background: #C7FFF6
+	background: #C0B8DA
 }
 
 .menu-label {
@@ -343,7 +343,7 @@ a {
 	border-radius: 10px;
 	bottom: 20px;
 	right: 12px;
-	background-color: #0ac5a8;
+	background-color: #C0B8DA;
 	z-index: 5
 }
 
@@ -541,7 +541,7 @@ a {
 }
 
 .fm-menu .list-group a:hover {
-	background: #008cff;
+	background: #7a4791;
 	color: #fff;
 	transition: all .2s ease-out
 }
@@ -1820,19 +1820,19 @@ a {
 
 
 .btn-inverse-primary {
-	color: #008cff;
+	color: #7a4791;
     background-color: rgba(0, 140, 255, 0.18);
     border-color: rgb(209, 234, 255);
 }
 
 .btn-inverse-primary:hover {
-	color: #008cff;
+	color: #7a4791;
     background-color: rgba(0, 140, 255, 0.18);
     border-color: rgba(0, 140, 255, 0.18);
 }
 
 .btn-inverse-primary:focus {
-	color: #008cff;
+	color: #7a4791;
     background-color: rgba(0, 140, 255, 0.18);
     border-color: rgba(0, 140, 255, 0.18);
 	box-shadow: 0 0 0 .25rem rgba(49, 132, 253, .3)
@@ -1914,7 +1914,7 @@ a {
 }
 
 .btn-inverse-info:hover {
-	color: #0dceec;
+	color: #7a4791;
     background-color: rgba(13, 206, 236, 0.18);
     border-color: rgba(13, 206, 236, 0.18);
 }
@@ -2113,7 +2113,7 @@ input.search-control-2::placeholder {
 
 .user-info .designattion {
 	font-size: 13px;
-	color: #a9a8a8
+	color: #020202
 }
 
 .user-box {

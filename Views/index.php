@@ -17,7 +17,7 @@
           </div>
           <div class="col-lg-6 mb-0 d-flex align-items-center">
             <div class="text-align-left">
-              <h1 class="h1 text-util"><b>Recarga de agua</b></h1>
+              <h1 class="h1 text-util"><b>¡Parfait con diferentes frutas!</b></h1>
               <h3 class="h2">Lorem ipsum dolor sit amet.</h3>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -33,7 +33,7 @@
           </div>
           <div class="col-lg-6 mb-0 d-flex align-items-center">
             <div class="text-align-left">
-              <h1 class="h1 text-util"><b>Recarga de detergentes</b></h1>
+              <h1 class="h1 text-util"><b>¡Paletas de diferentes sabores!</b></h1>
               <h3 class="h2">Aliquip ex ea commodo consequat</h3>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>

@@ -117,7 +117,7 @@
           </li>
           <li>
             <i class="fa fa-envelope fa-fw"></i>
-            <a class="text-decoration-none" href="mailto:info@company.com">ad.atencionalcliente@gmail.com</a>
+            <a class="text-decoration-none" href="mailto:info@company.com">tentacionsaludable@gmail.com</a>
           </li>
         </ul>
       </div>
@@ -125,9 +125,10 @@
       <div class="col-md-4 pt-5">
         <h2 class="h2 text-light border-bottom pb-3 border-light">Nuestros productos</h2>
         <ul class="list-unstyled text-light footer-link-list">
-          <li><a class="text-decoration-none" href="#">Agua</a></li>
-          <li><a class="text-decoration-none" href="#">Detergentes</a></li>
-          <li><a class="text-decoration-none" href="#">Envases</a></li>
+          <li><a class="text-decoration-none" href="#">Parfait</a></li>
+          <li><a class="text-decoration-none" href="#">Tartas</a></li>
+          <li><a class="text-decoration-none" href="#">Paletas</a></li>
+          <li><a class="text-decoration-none" href="#">Helados</a></li>
         </ul>
       </div>
 
@@ -175,7 +176,7 @@
       <div class="row pt-2">
         <div class="col-12">
           <p class="text-left text-light">
-            Copyright &copy; 2022 A&D
+            Copyright &copy; 2023 TentacionSaludable
           </p>
         </div>
       </div>

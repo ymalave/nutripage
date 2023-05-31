@@ -52,7 +52,7 @@
       <div class="w-100 d-flex justify-content-between">
         <div>
           <i class="fa fa-envelope mx-2"></i>
-          <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info.angel@gmail.com">ad.atencionalcliente@gmail.com</a>
+          <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info.angel@gmail.com">tentacionsaludable@gmail.com</a>
           <i class="fa fa-phone mx-2"></i>
           <a class="navbar-sm-brand text-light text-decoration-none" href="tel:900 897 537">0426 3941802</a>
         </div>
@@ -72,7 +72,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <a class="navbar-brand text-util logo h3 align-self-center" href="<?php echo BASE_URL; ?>">
-        <img class="img align-center" src="<?php echo BASE_URL . 'assets/images/logo2.png'; ?>" alt="" width="100">
+        <img class="img align-center" src="<?php echo BASE_URL . 'assets/images/logo2.png'; ?>" alt="" width="70">
       </a>
 
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

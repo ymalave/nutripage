@@ -147,16 +147,9 @@ class Clientes extends Controller
         if (is_array($pedidos) && is_array($productos)) {
             $id_transaccion = $pedidos['id'];
             $monto = $pedidos['purchase_units'][0]['amount']['value'];
-            $estado = $pedidos['status'];
             $fecha = date('Y-m-d H:i:s');
-            $email = $pedidos['payer']['email_address'];
-            $nombre = $pedidos['payer']['name']['given_name'];
-            $apellido = $pedidos['payer']['name']['surname'];
-            $direccion = $pedidos['purchase_units'][0]['shipping']['address']['address_line_1'];
-            $ciudad = $pedidos['purchase_units'][0]['shipping']['address']['admin_area_2'];
             $email_user = $_SESSION['correoCliente'];
-            $data = $this->model->registrarPedido($id_transaccion, $monto, $estado, $fecha, $email, 
-                                        $nombre, $apellido, $direccion, $ciudad, $email_user);
+            $data = $this->model->registrarPedido($id_transaccion, $monto, $fecha, $email_user);
             //Si se ha registrado un pago, toma los datos de los productos
             //del pedido para registrarlos en el detalle de los pedidos
             if ($data > 0) {
@@ -172,6 +165,44 @@ class Clientes extends Controller
             $mensaje = array('msg' => 'Error al registrar su pago', 'icono' => 'error');
         }
         echo json_encode($mensaje);
+        die();
+    }
+    //Obtiene los datos del pago de la compra para registrar los pedidos
+    //Obtiene los datos de los productos comprados para registrar el detalle de los pedidos
+    public function registroPedido()
+    {
+        $datos = file_get_contents('php://input');
+        $json = json_decode($datos, true);
+        $infoPago = $json['data'];
+        $pedidos = $json['pedidos'];
+        $productos = $json['productos'];
+        //echo json_encode($json, JSON_UNESCAPED_UNICODE);
+        //echo json_encode($json);
+        if (is_array($pedidos) && is_array($productos)) {
+            //Detalles del pago
+            $payDetails = [];
+            $payDetails['tipo'] = $infoPago['tipo'];
+            $payDetails['referencia'] = $infoPago['referencia'];
+            $payDetails['monto'] = $infoPago['monto'];
+            $payDetails['fecha'] = $infoPago['fecha'];
+            $payDetails['email'] = $_SESSION['correoCliente'];
+            $data = $this->model->registroPago($payDetails);
+            //Si se ha registrado un pago, toma los datos de los productos
+            //del pedido para registrarlos en el detalle de los pedidos
+            if ($data > 0) {
+                foreach ($productos as $producto) {
+                    $temp = $this->model->getProducto($producto['idProducto']);
+                    $this->model->registrarDetalle($temp['nombre'], $temp['precio'], $producto['cantidad'], $data, $producto['idProducto']);
+                }
+                $mensaje = array('msg' => '¡El pedido ha sido registrado existosamente!', 'icono' => 'success');
+            } else {
+                $mensaje = array('msg' => 'Error al registrar el pedido', 'icono' => 'error');
+            }
+            }
+        else {
+            $mensaje = array('msg' => 'Error al registrar su pago', 'icono' => 'error');
+        }
+        echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
         die();
     }
     //Listar prooductos pendientes

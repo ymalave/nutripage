@@ -4,6 +4,21 @@ const estadoEnviado = document.querySelector('#estadoEnviado');
 const estadoProceso = document.querySelector('#estadoProceso');
 const estadoCompletado = document.querySelector('#estadoCompletado');
 
+//para registrar pago movil
+//const modalPagoMovil = new bootstrap.Modal(document.getElementById('modalPagoMovil'));
+const registrarPago = document.querySelector("#btnRegistrarPago");
+const frmPayment = document.querySelector("#frmPagoMovil");
+const referencia = document.querySelector("#referencia");
+const monto = document.querySelector("#monto");
+const fecha = document.querySelector("#fecha");
+
+//Para registrar transferencia
+const registroTrans = document.querySelector("#btnRegistrarTrans");
+const frmTrans = document.querySelector("#frmTrans");
+const reference = document.querySelector("#reference");
+const amount = document.querySelector("#amount");
+const payDate = document.querySelector("#date");
+
 document.addEventListener("DOMContentLoaded", function() {
   if (tableLista) {
     getListaProductos()
@@ -25,6 +40,81 @@ document.addEventListener("DOMContentLoaded", function() {
     language, 
     dom,
     buttons
+  });
+  //Registrar pagos
+  registrarPago.addEventListener("click", function (datos) {
+    //Verifica que no se deje un campo sin rellenar en el registro
+    if (referencia.value == "" || monto.value == "" || fecha.value == "") {
+      Swal.fire("Aviso", "¡Todos los campos son requeridos!", "warning");
+    } else {
+      let infoPago = {
+        tipo: 'Pago movil',
+        referencia: referencia.value,
+        monto: monto.value,
+        fecha: fecha.value
+      };
+      const pago = JSON.stringify({
+        pedidos: datos,
+        productos: listaCarrito,
+        data: infoPago
+      })
+      // console.log(JSON.parse(pago));
+      // console.log(infoPago)
+      const url = base_url + 'clientes/registroPedido';
+      const http = new XMLHttpRequest();
+      http.open("POST", url, true);
+      http.send(pago);
+      http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          const res = JSON.parse(this.responseText);
+          console.log(res)
+          Swal.fire("Aviso", res.msg, res.icono);
+          if (res.icono == "success") {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
+        }
+      }
+    }
+  });
+
+
+  registroTrans.addEventListener("click", function (datos) {
+    //Verifica que no se deje un campo sin rellenar en el registro
+    if (reference.value == "" || amount.value == "" || payDate.value == "") {
+      Swal.fire("Aviso", "¡Todos los campos son requeridos!", "warning");
+    } else {
+      let infoPago = {
+        tipo: 'Transferencia',
+        referencia: reference.value,
+        monto: amount.value,
+        fecha: payDate.value
+      };
+      const pago = JSON.stringify({
+        pedidos: datos,
+        productos: listaCarrito,
+        data: infoPago
+      })
+      // console.log(JSON.parse(pago));
+      // console.log(infoPago)
+      const url = base_url + 'clientes/registroPedido';
+      const http = new XMLHttpRequest();
+      http.open("POST", url, true);
+      http.send(pago);
+      http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          const res = JSON.parse(this.responseText);
+          console.log(res)
+          Swal.fire("Aviso", res.msg, res.icono);
+          if (res.icono == "success") {
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
+        }
+      }
+    }
   });
 });
 //Obtiene la lista de productos del carrito y los muestra en el perfil del cliente
@@ -106,6 +196,10 @@ function registrarPedido(datos) {
             }
         }
     }
+}
+//Toma los datos del pago y los envia al controlador clientes
+function registroPedido(datos) {
+  
 }
 //Permite ver el estado del pedido seleccionado
 function verPedido(idPedido) {

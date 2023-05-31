@@ -23,14 +23,11 @@
                     <table class="table table-bordered table-striped table-hover align-middle" style="width: 100%;" id="tblPendientes">
                         <thead class="thead-light">
                             <tr>
+                                <th>Tipo de pago</th>
                                 <th>ID Transacción</th>
                                 <th>Monto</th>
-                                <th>Estado</th>
                                 <th>Fecha</th>
                                 <th>Correo</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Dirección</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -49,14 +46,11 @@
                     <table class="table table-bordered table-striped table-hover align-middle" style="width: 100%;" id="tblProceso">
                         <thead class="thead-light">
                             <tr>
+                                <th>Tipo de pago</th>
                                 <th>ID Transacción</th>
                                 <th>Monto</th>
-                                <th>Estado</th>
                                 <th>Fecha</th>
                                 <th>Correo</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Dirección</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -75,14 +69,11 @@
                     <table class="table table-bordered table-striped table-hover align-middle" style="width: 100%;" id="tblCompletados">
                         <thead class="thead-light">
                             <tr>
+                                <th>Tipo de pago</th>
                                 <th>ID Transacción</th>
                                 <th>Monto</th>
-                                <th>Estado</th>
                                 <th>Fecha</th>
                                 <th>Correo</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Dirección</th>
                                 <th></th>
                             </tr>
                         </thead>

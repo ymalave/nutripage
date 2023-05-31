@@ -53,19 +53,19 @@ body, ul, li, p, a, label, input, div {
 .text-warning {  color: #ede861 !important;}
 .text-muted { color: #bcbcbc !important;}
 .text-success { color: #59ab6e !important;}
-.text-util { color: #0AC5A8 !important;}
+.text-util { color: #7a4791 !important;}
 .text-light { color: #cfd6e1 !important;}
 .bg-dark { background-color: #212934 !important;}
 .bg-light { background-color: #e9eef5 !important;}
 .bg-black { background-color: #1d242d !important;}
 .bg-success { background-color: #59ab6e !important;}
-.bg-util { background-color: #0AC5A8 !important;}
+.bg-util { background-color: #7a4791 !important;}
 .btn-success {
   background-color: #59ab6e !important;
   border-color: #56ae6c !important;
 }
 .btn-util {
-  background-color: #0AC5A8 !important;
+  background-color: #7a4791 !important;
   color: #ffffff !important;
   cursor: pointer;
   outline: none;
@@ -128,7 +128,7 @@ body, ul, li, p, a, label, input, div {
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
-  background-color: #0AC5A8;
+  background-color: #7a4791;
 }
 #template-mo-zay-hero-carousel .carousel-control-next i,
 #template-mo-zay-hero-carousel .carousel-control-prev i {
@@ -141,7 +141,7 @@ body, ul, li, p, a, label, input, div {
   color: #000 !important;
 }
 /* Services */
-.services-icon-wap {transition: .3s; background: #87e3d5;}
+.services-icon-wap {transition: .3s; background: #cfa8d5;}
 .services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
 /* Contact map */
 .leaflet-control a, .leaflet-control { font-size: 10px !important;}

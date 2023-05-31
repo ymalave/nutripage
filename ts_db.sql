@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: ad_db
+-- Host: localhost    Database: ts_db
 -- ------------------------------------------------------
 -- Server version	10.4.24-MariaDB
 
@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Agua','assets/images/categorias/20230111175155.jpg',1),(2,'Detergentes','assets/images/categorias/20230111175214.jpg',1),(3,'Envases','assets/images/categorias/20230111175253.jpg',1),(4,'prueba','assets/images/categorias/20230111204317.jpg',1);
+INSERT INTO `categorias` VALUES (1,'Parfait','assets/images/categorias/20230508213050.jpg',1),(2,'Tartas','assets/images/categorias/20230508213810.jpg',1),(3,'Paletas','assets/images/categorias/20230508213844.jpg',1),(4,'Helados','assets/images/categorias/20230508213901.jpg',1);
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `clientes` (
   `token` varchar(100) DEFAULT NULL,
   `verify` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'Mariela Campbell','marielakmpbell@gmail.com','$2y$10$B6ubMWW7uNOk/oJcayCM0up.QR7kr0uwE1kyXNVbq8Grwcw73H8rC','default.png',NULL,1);
+INSERT INTO `clientes` VALUES (1,'Mariela Campbell','marielakmpbell@gmail.com','$2y$10$B6ubMWW7uNOk/oJcayCM0up.QR7kr0uwE1kyXNVbq8Grwcw73H8rC','default.png',NULL,1),(2,'Jennifer Gonzalez','jennifergzalez@gmail.com','$2y$10$ZG5HddJ2Hblxg41k3mwWROVrIfPDm8FDU4373kb2r4vTtwaXGw0zG','default.png',NULL,1),(3,'Yoberth Malave','yjmalave06@gmail.com','$2y$10$8CIu2mmU2vKQ3lBlHfTI3u9rmbGRBjhP7aOeWzlLfO7dtf7wULx4i','default.png',NULL,1);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `detalle_pedidos` (
   KEY `id_producto` (`id_producto`),
   CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id`),
   CONSTRAINT `detalle_pedidos_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,8 +98,32 @@ CREATE TABLE `detalle_pedidos` (
 
 LOCK TABLES `detalle_pedidos` WRITE;
 /*!40000 ALTER TABLE `detalle_pedidos` DISABLE KEYS */;
-INSERT INTO `detalle_pedidos` VALUES (1,'Agua potable 20L',3.00,1,1,3),(2,'Cloro 1L',1.00,1,1,4),(3,'Agua potable 5L',1.00,3,2,1),(4,'Agua potable 12L',2.00,1,2,2),(5,'Cloro 1L',1.00,1,2,4);
+INSERT INTO `detalle_pedidos` VALUES (1,'Tarta de arándanos',15.00,1,1,6),(2,'Parfait de fresa y banana',6.50,2,1,10);
 /*!40000 ALTER TABLE `detalle_pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nivel`
+--
+
+DROP TABLE IF EXISTS `nivel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nivel` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `nivel` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nivel`
+--
+
+LOCK TABLES `nivel` WRITE;
+/*!40000 ALTER TABLE `nivel` DISABLE KEYS */;
+INSERT INTO `nivel` VALUES (1,'Gerente'),(2,'Administrador'),(3,'Cliente');
+/*!40000 ALTER TABLE `nivel` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -111,19 +135,14 @@ DROP TABLE IF EXISTS `pedidos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_pago` enum('Pago movil','Transferencia','PayPal') DEFAULT NULL,
   `id_transaccion` varchar(80) NOT NULL,
   `monto` decimal(10,2) NOT NULL,
-  `estado` varchar(30) NOT NULL,
-  `fecha` datetime NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
-  `direccion` varchar(255) NOT NULL,
-  `ciudad` varchar(50) NOT NULL,
-  `email_user` varchar(80) NOT NULL,
+  `fecha` date NOT NULL,
+  `email_user` varchar(80) DEFAULT NULL,
   `proceso` enum('1','2','3') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +151,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,'3AX09242EA464744D',4.00,'COMPLETED','2023-01-11 18:26:09','sb-6voxp15194620@personal.example.com','John','Doe','Free Trade Zone','Caracas','marielakmpbell@gmail.com','2'),(2,'5DB51424BN734951M',6.00,'COMPLETED','2023-01-11 20:38:25','sb-6voxp15194620@personal.example.com','John','Doe','Free Trade Zone','Caracas','marielakmpbell@gmail.com','3');
+INSERT INTO `pedidos` VALUES (1,'Transferencia','15452',30.00,'2023-05-31','yjmalave06@gmail.com','2');
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,7 +174,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`id`),
   KEY `id_categoria` (`id_categoria`),
   CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +183,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Agua potable 5L','Agua apta para el consumo, puede ser consumida sin restricción para beber o preparar alimentos.​​',1.00,10,'assets/images/productos/20230111175420.jpg',1,1),(2,'Agua potable 12L','Agua apta para el consumo, puede ser consumida sin restricción para beber o preparar alimentos.​​',2.00,20,'assets/images/productos/20230111175558.jpg',1,1),(3,'Agua potable 20L','Agua apta para el consumo, puede ser consumida sin restricción para beber o preparar alimentos.​​',3.00,30,'assets/images/productos/20230111175646.jpg',1,1),(4,'Cloro 1L','De uso doméstico. Es efectivo, económico y conveniente. Perfecto para realizar la limpieza habitual, eliminando así la suciedad de las superficies y los gérmenes.',1.00,5,'assets/images/productos/20230111175731.jpg',2,1),(5,'Cloro 5L','De uso doméstico. Es efectivo, económico y conveniente. Perfecto para realizar la limpieza habitual, eliminando así la suciedad de las superficies y los gérmenes.',2.00,20,'assets/images/productos/20230111175812.jpg',2,1),(6,'Lavaplatos líquido 400mL','Limpiador líquido multisuperficies de uso doméstico, formulado para limpiar y desengrasar todas las superficies lavables de la cocina, hornillas, griferías, vajillas, ollas, utensilios, y cualquier otro lugar en el que se requiera remover sucio y grasa, dejándolos relucientes y sin residuos, además con poder antibacterial.',1.00,10,'assets/images/productos/20230111175940.jpg',2,1),(7,'Lavaplatos líquido 5L','Limpiador líquido multisuperficies de uso doméstico, formulado para limpiar y desengrasar todas las superficies lavables de la cocina, hornillas, griferías, vajillas, ollas, utensilios, y cualquier otro lugar en el que se requiera remover sucio y grasa, dejándolos relucientes y sin residuos, además con poder antibacterial.',2.00,20,'assets/images/productos/20230111180024.jpg',2,1),(8,'Envase para agua potable 1L','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',1.00,5,'assets/images/productos/20230111180214.jpg',3,1),(9,'Envase para agua potable 5L','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',2.00,10,'assets/images/productos/20230111180303.jpg',3,1),(10,'Botellón para agua potable 20L','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',3.00,20,'assets/images/productos/20230111180350.jpg',3,1),(11,'Envase para detergentes 400mL','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',1.00,5,'assets/images/productos/20230111180444.jpg',3,1),(12,'Envase para detergentes 400mL','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',1.00,5,'assets/images/productos/20230111180603.jpg',3,1),(13,'Envase para detergentes 1L','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',2.00,10,'assets/images/productos/20230111180701.jpg',3,1),(14,'Envase para detergentes 5L','Botellas hechas 100% de plástico reciclado que representan una opción sostenible. Estos envases nos invitan a ser más respetuosos y a reciclar para mantener el plástico dentro de nuestro círculo y fuera de la naturaleza.',3.00,15,'assets/images/productos/20230111180804.jpg',3,1),(15,'pruebaa','dsfsdg',1.00,2,'assets/images/productos/20230111204403.jpg',1,1);
+INSERT INTO `productos` VALUES (1,'Helado de fresa','Refrescante postre sabor a fresa, perfecto para los días calurosos.',5.00,20,'assets/images/productos/20230508214742.jpg',4,1),(2,'Helado de mango','Refrescante postre sabor a mango, perfecto para los días calurosos.',5.00,20,'assets/images/productos/20230508214826.jpg',4,1),(3,'Paleta de durazno','Deliciosas y nutritivas paletas de helado de yogurt con trozos de durazno. Estas paletas son un postre fresco y saludable que podemos comer sin culpa con la excusa perfecta de incorporar más fruta a nuestra dieta.',2.50,20,'assets/images/productos/20230508215224.jpg',3,1),(4,'Paleta de fresa y arándano','Deliciosas y nutritivas paletas de helado de yogurt con trozos de fresa y arándanos. Estas paletas son un postre fresco y saludable que podemos comer sin culpa con la excusa perfecta de incorporar más fruta a nuestra dieta.',2.50,20,'assets/images/productos/20230508215359.jpg',3,1),(5,'Paleta de fresa','Deliciosas y nutritivas paletas de helado de yogurt con trozos de fresa. Estas paletas son un postre fresco y saludable que podemos comer sin culpa con la excusa perfecta de incorporar más fruta a nuestra dieta.',2.50,20,'assets/images/productos/20230508215512.jpg',3,1),(6,'Tarta de arándanos','Tarta tan cremosa que casi parece un flan con dulce mermelada y trozos de arándanos.',15.00,5,'assets/images/productos/20230508220346.jpg',2,1),(7,'Tarta de durazno','Tarta tan cremosa que casi parece un flan con dulce mermelada y trozos de durazno.',15.00,5,'assets/images/productos/20230508220439.jpg',2,1),(8,'Tarta de fresa','Tarta tan cremosa que casi parece un flan con dulce mermelada y trozos de fresa.',15.00,5,'assets/images/productos/20230508220508.jpg',2,1),(9,'Parfait de durazno','Exquisito postre que sirve de desayuno dentro de un vaso repartido por capas, las cuales incluyen granola, yogurt griego y trozos de durazno.',6.50,20,'assets/images/productos/20230508221217.jpg',1,1),(10,'Parfait de fresa y banana','Exquisito postre que sirve de desayuno dentro de un vaso repartido por capas, las cuales incluyen granola, yogurt griego y trozos de fresa y banana.',6.50,20,'assets/images/productos/20230508221304.jpg',1,1),(11,'Parfait de fresa y arándano','Exquisito postre que sirve de desayuno dentro de un vaso repartido por capas, las cuales incluyen granola, yogurt griego y trozos de fresa y arándano.',6.50,20,'assets/images/productos/20230508221354.jpg',1,1),(12,'Parfait de fresa','Exquisito postre que sirve de desayuno dentro de un vaso repartido por capas, las cuales incluyen granola, yogurt griego y trozos de fresa.',6.50,20,'assets/images/productos/20230508221429.jpg',1,1),(13,'Parfait de kiwi y banana','Exquisito postre que sirve de desayuno dentro de un vaso repartido por capas, las cuales incluyen granola, yogurt griego y trozos de kiwi y banana.',6.50,20,'assets/images/productos/20230508221506.jpg',1,1),(14,'Parfait de manzana','Exquisito postre que sirve de desayuno dentro de un vaso repartido por capas, las cuales incluyen granola, yogurt griego y trozos de manzana.',6.50,20,'assets/images/productos/20230508221539.jpg',1,1);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,4 +225,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-11 21:01:28
+-- Dump completed on 2023-05-31 16:19:33

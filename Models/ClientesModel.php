@@ -44,13 +44,23 @@ class ClientesModel extends Query
         return $this->select($sql);
     }
     /*Funcion para insertar los datos del pago de la compra en la tabla 'pedidos'*/
-    public function registrarPedido($id_transaccion, $monto, $estado, $fecha, $email, 
-                                    $nombre, $apellido, $direccion, $ciudad, $email_user)
+    public function registrarPedido($id_transaccion, $monto, $fecha, $email_user)
     {
-        $sql = "INSERT INTO pedidos (id_transaccion, monto, estado, fecha, email, nombre, 
-                                    apellido, direccion, ciudad, email_user) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        $datos = array($id_transaccion, $monto, $estado, $fecha, $email, 
-                        $nombre, $apellido, $direccion, $ciudad, $email_user);
+        $sql = "INSERT INTO pedidos (id_transaccion, monto, fecha, email_user) VALUES (?,?,?,?)";
+        $datos = array($id_transaccion, $monto, $fecha, $email_user);
+        $data = $this->insertar($sql, $datos);
+        if ($data > 0) {
+            $res = $data;
+        } else {
+            $res = 0;
+        }
+        return $res;
+    }
+    /*Funcion para insertar los datos del pago de la compra en la tabla 'pedidos'*/
+    public function registroPago($payDetails)
+    {
+        $sql = "INSERT INTO pedidos (tipo_pago, id_transaccion, monto, fecha, email_user) VALUES (?,?,?,?,?)";
+        $datos = array( $payDetails['tipo'], $payDetails['referencia'],$payDetails['monto'], $payDetails['fecha'], $payDetails['email']);
         $data = $this->insertar($sql, $datos);
         if ($data > 0) {
             $res = $data;

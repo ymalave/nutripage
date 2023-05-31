@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })
 });
+
 //Para enviar el correo de verificación
 function enviarCorreo(correo, token) {
   let formData = new FormData();

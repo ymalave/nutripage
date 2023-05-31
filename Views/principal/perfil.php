@@ -62,27 +62,38 @@
                                 <p><?php echo $_SESSION['nombreCliente']; ?></p>
                                 <p><i class="fas fa-envelope"></i> <?php echo $_SESSION['correoCliente']; ?></p>
                                 <div class="accordion" id="accordionExample">
+                                    <!-- Metodos de pago -->
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Paypal
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                Métodos de pago
                                             </button>
                                         </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <div id="paypal-button-container"></div>
+                                                <div class="d-grid gap-2">
+                                                    <!-- Pago movil -->
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPagoMovil">
+                                                        Pago móvil
+                                                    </button>
+                                                    <!-- Transferencia -->
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTrans">
+                                                        Transferencia
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Pago con paypal -->
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                                 Otros métodos de pago
                                             </button>
                                         </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>No hay :c</p>
+                                                <div id="paypal-button-container"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -186,6 +197,116 @@
     </div>
 </div>
 <!-- Fin del diseño del modal -->
+
+<!-- Inicio del diseño de modal para pago movil -->
+<div id="modalPagoMovil" class="modal fade" tabindex="-1" role="dialog" 
+    aria-labelledby="my-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title"><i class="fas fa-money-bill"></i> Pago móvil</h5>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="get" action="">
+                    <!-- Datos del pago movil -->
+                    <div class="card text-bg-light text-center" style="margin-bottom: 16px">
+                        <div class="card-body" >
+                            <b>Teléfono:</b> 0426 3941802 </br>  
+                            <b>Cédula:</b> 24119956 </br>
+                            <b>Banco:</b> Banesco 0134
+                        </div>
+                    </div>
+                    <!-- Formulario para insertar datos del pago movil -->
+                    <div id="frmPagoMovil">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                Número de referencia
+                            </span>
+                            <input id="referencia" type="number" class="form-control" 
+                            placeholder="Número de referencia">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                Monto
+                            </span>
+                            <input id="monto" type="number" class="form-control" 
+                            placeholder="Número de referencia">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                Fecha
+                            </span>
+                            <input id="fecha" type="date" class="form-control" 
+                            placeholder="Número de referencia">
+                        </div>
+                        <div class="float-end">
+                            <button class="btn btn-primary btn-lg" type="button" 
+                                id="btnRegistrarPago">Registrar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin del diseño de modal para pago movil -->
+
+<!-- Inicio del diseño de modal para transferencia -->
+<div id="modalTrans" class="modal fade" tabindex="-1" role="dialog" 
+    aria-labelledby="my-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title"><i class="fas fa-money-bill"></i> Transferencia</h5>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form method="get" action="">
+                <!-- Datos para la transferencia -->
+                <div class="card text-bg-light text-center" style="margin-bottom: 16px">
+                    <div class="card-body" >
+                        <b>Cuenta:</b> 01340567105673022463 </br>  
+                        <b>Cédula:</b> 24119956 </br>
+                        <b>Banco:</b> Banesco 0134
+                    </div>
+                </div>
+                <!-- Formulario para insertar datos del pago movil -->
+                <div id="frmTrans">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="referencia">
+                            Número de referencia
+                        </span>
+                        <input id="reference" type="number" class="form-control" 
+                            placeholder="Número de referencia">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="referencia">
+                            Monto
+                        </span>
+                        <input id="amount" type="number" class="form-control" 
+                            placeholder="Monto">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="referencia">
+                            Fecha
+                        </span>
+                        <input id="date" type="date" class="form-control" 
+                            placeholder="Número de referencia">
+                    </div>
+                    <div class="float-end">
+                        <button class="btn btn-primary btn-lg" type="button" 
+                            id="btnRegistrarTrans">Registrar
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin del diseño de modal para transferencia -->
 
 <?php include_once 'Views/template/footer-principal.php'; ?>
 

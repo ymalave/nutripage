@@ -1,12 +1,12 @@
 <?php
 /**Definición de constantes*/
-const BASE_URL = "http://localhost/project-AD/";
+const BASE_URL = "http://localhost/project-TS/";
 const HOST = "localhost";
 const USER = "root";
 const PASS = "";
-const DB = "AD_db";
+const DB = "ts_db";
 const CHARSET = "charset=utf8";
-const TITLE = "A&D";
+const TITLE = "TentacionSaludable";
 const MONEDA = "USD";
 const CLIENT_ID = "AZk3OV5Ago3SpVKDvj8YjP2RNbEQYeZlm-CRy0BmwRDCqvfHr8pldpVHMdQA__dfBVQPV8lkuXhsve2z";
 const USER_SMTP = "ad.atencionalcliente@gmail.com";
