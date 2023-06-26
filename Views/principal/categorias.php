@@ -23,21 +23,12 @@
                                 <img class="card-img rounded-0 img-fluid" src="<?php echo BASE_URL . $producto['imagen']; ?>">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <!-- Agregar producto a lista de deseos al tocar el icono de corazon -->
-                                        <li>
-                                            <a class="btn btn-util text-white btnAddDeseo" href="#" prod="<?php echo $producto['id']; ?>">
-                                            <i class="fas fa-heart"></i></a>
-                                        </li>
                                         <!-- Muestra la informacion del producto al tocar el icono de ojito -->
                                         <li>
                                             <a class="btn btn-util text-white mt-2" href="<?php echo BASE_URL . 'principal/detail/' . $producto['id']; ?>">
                                             <i class="fas fa-eye"></i></a>
                                         </li>
-                                        <!-- Agregar producto al carrito de compras al tocar el icono de carrito -->
-                                        <li>
-                                            <a class="btn btn-util text-white mt-2 btnAddCarrito" href="#" prod="<?php echo $producto['id']; ?>">
-                                            <i class="fas fa-cart-plus"></i></a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -54,8 +45,7 @@
                                         <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                     </li>
                                 </ul>
-                                <!-- Muestra el precio de los productos en el catalogo -->
-                                <p class="text-center mb-0"><?php echo MONEDA . ' ' . $producto['precio']; ?></p>
+
                             </div>
                         </div>
                     </div>

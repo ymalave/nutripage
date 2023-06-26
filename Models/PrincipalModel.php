@@ -14,7 +14,7 @@ class PrincipalModel extends Query
     /*Metodo para crear la paginación del catalogo*/
     public function getProductos($desde, $porPagina)
     {
-        $sql = "SELECT * FROM productos LIMIT $desde, $porPagina";
+        $sql = "SELECT p.*, c.categoria FROM productos p INNER JOIN categorias c ON p.id_categoria = c.id LIMIT $desde, $porPagina";
         return $this->selectAll($sql);
     }
     /*Metodo para obtener el total de los productos del catalogo*/

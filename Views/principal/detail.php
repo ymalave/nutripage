@@ -16,7 +16,6 @@
                     <div class="card-body">
                         <!-- Muestra el nombre y el precio del producto -->
                         <h1 class="h2"><?php echo $data['producto']['nombre']; ?></h1>
-                        <p class="h3 py-2"><?php echo MONEDA . ' ' . $data['producto']['precio']; ?></p>
                         <!-- Muestra la categoria del producto -->
                         <ul class="list-inline">
                             <li class="list-inline-item">
@@ -27,35 +26,10 @@
                             </li>
                         </ul>
                         <!-- Muestra la descripción del producto -->
-                        <h6>Descripción:</h6>
-                        <p><?php echo $data['producto']['descripcion']; ?></p>
-
-                        <form action="" method="GET">
-                            <input type="hidden" id="idProducto" value="<?php echo $data['producto']['id']; ?>">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <ul class="list-inline pb-3">
-                                        <li class="list-inline-item text-right">
-                                            Cantidad
-                                            <input type="hidden" id="product-quanity" value="1">
-                                        </li>
-                                        <li class="list-inline-item"><span class="badge btn-util" id="btn-minus">-</span></li>
-                                        <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                        <li class="list-inline-item"><span class="badge btn-util" id="btn-plus">+</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row pb-3">
-                                <!-- Boton para comprar producto -->
-                                <div class="col d-grid">
-                                    <button type="submit" class="btn btn-util btn-lg" name="submit" value="buy">Comprar</button>
-                                </div>
-                                <!-- Boton para añadir producto a carrito -->
-                                <div class="col d-grid">
-                                    <button type="button" class="btn btn-util btn-lg" id="btnAddCart">Añadir</button>
-                                </div>
-                            </div>
-                        </form>
+                        <?php 
+                            $recipe = file_get_contents($data['producto']['receta']);
+                            echo $recipe;
+                        ?>
 
                     </div>
                 </div>
@@ -82,20 +56,10 @@
                             <img class="card-img rounded-0 img-fluid" src="<?php echo BASE_URL . $producto['imagen']; ?>">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                    <!-- Agregar producto a lista de deseos al tocar el icono de corazon -->
-                                    <li>
-                                        <a class="btn btn-util text-white btnAddDeseo" href="#" prod="<?php echo $producto['id']; ?>">
-                                        <i class="fas fa-heart"></i></a>
-                                    </li>
                                     <!-- Muestra la informacion del producto al tocar el icono de ojito -->
                                     <li>
                                         <a class="btn btn-util text-white mt-2" href="<?php echo BASE_URL . 'principal/detail/' . $producto['id']; ?>">
                                         <i class="fas fa-eye"></i></a>
-                                    </li>
-                                    <!-- Agregar producto al carrito de compras al tocar el icono de carrito -->
-                                    <li>
-                                        <a class="btn btn-util text-white mt-2 btnAddCarrito" href="#" prod="<?php echo $producto['id']; ?>">
-                                        <i class="fas fa-cart-plus"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -122,8 +86,7 @@
                                     <i class="text-muted fa fa-star"></i>
                                 </li>
                             </ul>
-                            <!-- Muestra el precio de los productos relacionados -->
-                            <p class="text-center mb-0"><?php echo MONEDA . ' ' . $producto['precio']; ?></p>
+                            
                         </div>
                     </div>
                 </div>

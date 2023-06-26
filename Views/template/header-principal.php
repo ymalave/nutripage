@@ -42,7 +42,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL . 'assets/DataTables/datatables.min.css'; ?>">
 
   <!-- Replace "test" with your own sandbox Business account app client ID -->
-  <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID; ?>&currency=<?php echo MONEDA; ?>"></script>
 </head>
 
 <body>
@@ -52,9 +51,9 @@
       <div class="w-100 d-flex justify-content-between">
         <div>
           <i class="fa fa-envelope mx-2"></i>
-          <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info.angel@gmail.com">tentacionsaludable@gmail.com</a>
+          <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info.angel@gmail.com">nutripage@gmail.com</a>
           <i class="fa fa-phone mx-2"></i>
-          <a class="navbar-sm-brand text-light text-decoration-none" href="tel:900 897 537">0426 3941802</a>
+          <a class="navbar-sm-brand text-light text-decoration-none" href="tel:900 897 537">0424 - 9121545</a>
         </div>
         <div>
           <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-square fa-sm fa-fw me-2"></i></a>
@@ -72,7 +71,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <a class="navbar-brand text-util logo h3 align-self-center" href="<?php echo BASE_URL; ?>">
-        <img class="img align-center" src="<?php echo BASE_URL . 'assets/images/logo2.png'; ?>" alt="" width="70">
+        <img class="img align-center" src="<?php echo BASE_URL . 'assets/images/logo.png'; ?>" alt="" width="70">
       </a>
 
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,26 +104,6 @@
           <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
             <i class="fas fa-fw fa-search text-dark mr-2"></i>
           </a>
-          <!-- La condición hace que no se muestren los botones si se esta en la vista perfil -->
-          <!--Diseño del icono de carrito de compras-->
-          <a class="nav-icon position-relative text-decoration-none <?php echo ($data['perfil'] == 'no') ? '' : 'd-none'; ?>" href="#" id="verCarrito">
-            <i class="fas fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-white" id="btnCantidadCarrito">0</span>
-          </a>
-          <!--Diseño del icono de lista de deseos-->
-          <a class="nav-icon position-relative text-decoration-none <?php echo ($data['perfil'] == 'no') ? '' : 'd-none'; ?>" href="<?php echo BASE_URL . 'principal/deseo' ?>">
-            <i class="fas fa-fw fa-heart text-dark mr-1"></i>
-            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-white" id="btnCantidadDeseo">0</span>
-          </a>
-          <!--Diseño del icono de perfil-->
-          <!-- Si no se ha iniciado sesion muestra imagen del cliente, caso contrario el icono de perfil -->
-          <?php if (!empty($_SESSION['correoCliente'])) { ?>
-            <a class="nav-icon position-relative text-decoration-none" href="<?php echo BASE_URL . 'clientes' ?>">
-              <img class="img-thumbnail rounded-circle" src="<?php echo BASE_URL . 'assets/images/clientes/default.png' ?>" alt="-LOGO-CLIENTE" width="32"></a>
-          <?php } else { ?>
-            <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">
-              <i class="fas fa-fw fa-user text-dark mr-3"></i></a>
-          <?php } ?>
 
         </div>
       </div>

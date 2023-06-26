@@ -17,7 +17,7 @@
           </div>
           <div class="col-lg-6 mb-0 d-flex align-items-center">
             <div class="text-align-left">
-              <h1 class="h1 text-util"><b>¡Parfait con diferentes frutas!</b></h1>
+              <h1 class="h1 text-util"><b>¡Tenemos los postres mas ricos y saludables!</b></h1>
               <h3 class="h2">Lorem ipsum dolor sit amet.</h3>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -29,11 +29,11 @@
       <div class="container">
         <div class="row p-5">
           <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-            <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/images/carrusel/2.png" alt="">
+            <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/images/carrusel/2.jpg" alt="">
           </div>
           <div class="col-lg-6 mb-0 d-flex align-items-center">
             <div class="text-align-left">
-              <h1 class="h1 text-util"><b>¡Paletas de diferentes sabores!</b></h1>
+              <h1 class="h1 text-util"><b>¡Las mejoes recetas para su comida!</b></h1>
               <h3 class="h2">Aliquip ex ea commodo consequat</h3>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -49,7 +49,7 @@
           </div>
           <div class="col-lg-6 mb-0 d-flex align-items-center">
             <div class="text-align-left">
-              <h1 class="h1 text-util"><b>¡También tenemos delivery!</b></h1>
+              <h1 class="h1 text-util"><b>¡Consejos sobre vida saludable!</b></h1>
               <h3 class="h2">Ullamco laboris nisi ut </h3>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -78,7 +78,7 @@
     </div>
   </div>
   <!-- Listar categorias en filas -->
-  <div class="row">
+  <div class="row justify-content-center">
     <?php foreach ($data['categorias'] as $categoria) { ?>
       <div class="col-12 col-md-3 p-5 mt-3">
         <!-- Toma las imagenes de las categorias de la bd -->
@@ -120,15 +120,11 @@
                   <i class="text-muted fa fa-star"></i>
                   <i class="text-muted fa fa-star"></i>
                 </li>
-                <!-- Muestra el precio de los nuevos productos -->
-                <li class="text-muted text-right"><?php echo MONEDA . ' ' . $producto['precio']; ?></li>
+                
               </ul>
               <!-- Al tocar un producto muestra sus detalles -->
               <a href="<?php echo BASE_URL . 'principal/detail/' . $producto['id']; ?>" class="h2 text-decoration-none text-dark"><?php echo $producto['nombre']; ?></a>
-              <!-- Muestra la descripcion de los nuevos productos -->
-              <p class="card-text">
-                <?php echo $producto['descripcion']; ?>
-              </p>
+             
             </div>
           </div>
         </div>
